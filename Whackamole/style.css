@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(173, 73, 240);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none; 
+}
+
+.score{
+    font-size:  6em;
+    margin-bottom: 50px;
+}
+
+.board{
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 50px;
+    /* gap for inbetween holes, 
+    grid template for all 9 holes */
+}
+
+.hole{
+    background-color: rgb(42, 29, 52);
+    border-radius: 50%;
+    box-shadow: inset 0 10px 0 11px #8f6da1;
+    /* background-image: url("/images/hole.png"); */
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.hole .mole{
+    width:70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: raise .3s ease-out;
+    /* postion of image of patrick in relation to the hole */
+
+}
+
+.cursor{
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;    
+    background-image: url("/images/mallett.png");
+    background-size: 100% 100%;
+    transform: translate(-40%, -60%);
+    transition: transform .1s;
+    pointer-events: none;
+    /* image of cursor and postion relative to mouse movment */
+}
+
+.cursor.active{
+    transform: translate(-20%, -20%) rotate(-45deg);
+    /*actually moves once you click */
+}
